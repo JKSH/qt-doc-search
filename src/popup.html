@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Qt Doc Search</title>
+	<style type="text/css">
+	* {
+		font-family:Arial,Helvetica,sans-serif;
+		font-size: 13px;
+	}
+	body {
+		background-color: rgb(232,232,232);
+		margin: 0;
+		padding: 0;
+	}
+	#mainDiv {
+		background-color: white;
+		margin: 6px;
+		padding: 8px;
+		line-height: 20px;
+		width: 365px;
+		height: 81px;
+		border-radius: 8px;
+		border: 2px solid rgb(218,218,218);
+		display: block;
+	}
+	span.key {
+		background-color: #e9f1f4;
+		border: 1px solid #c3c3c3;
+		border-radius: 5px;
+		padding: 0 5px;
+	}
+	</style>
+	<script src="popup.js"></script>
+</head>
+<body>
+	<div id="mainDiv">
+		<b>Library version:</b>
+		<select id="qtSelection">
+			<option value="5.2">Qt 5.2</option>
+			<option value="5.1">Qt 5.1</option>
+			<option value="5.0">Qt 5.0</option>
+			<option value="4.8">Qt 4.8</option>
+			<option value="4.7">Qt 4.7</option>
+		</select>
+
+		<p><b>Usage:</b> Select your Qt version above. Type <span class="key">q</span> <span class="key">d</span> <span class="key">space</span> or<br/>
+		<span class="key">q</span> <span class="key">d</span> <span class="key">tab</span> into Chrome's address bar to perform a search.</p>
+	</div>
+</body>
+</html>
+
