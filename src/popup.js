@@ -1,7 +1,7 @@
 function loadOptions() {
 	var version = localStorage['qtver']
 	if (version == undefined) {
-		version = '5.2'
+		version = '5'
 	}
 
 	var combobox = document.getElementById('qtSelection')
