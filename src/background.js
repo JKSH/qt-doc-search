@@ -1,7 +1,7 @@
 chrome.omnibox.onInputEntered.addListener(
 	function(searchText) {
 		// Format: "5", "5.2", "4.7", etc.
-		var qtVersion = localStorage['qtver'];
+		var qtVersion = localStorage['qtver']
 		if (qtVersion == undefined) {
 			qtVersion = '5'
 		}
@@ -20,6 +20,6 @@ chrome.omnibox.onInputEntered.addListener(
 				site = 'site%3Aqt-project.org%2Fdoc%2Fqt-' + qtVersion + '%2F'
 		}
 
-		chrome.tabs.create({'url': 'https://www.google.com/search?q=' + site + '+' + searchText});
+		chrome.tabs.create({'url': 'https://www.google.com/search?q=' + site + '+' + searchText})
 	});
 
