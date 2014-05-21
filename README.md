@@ -1,4 +1,4 @@
-qt-doc-search
+Qt Doc Search
 =============
 
 A Google Chrome extension that provides streamlined documentation search for Qt developers.
