@@ -10,7 +10,7 @@ chrome.omnibox.onInputEntered.addListener(
 		switch (qtVersion) {
 			// Docs for Qt 5.4 onwards are hosted at doc.qt.io
 			case '5':
-				site = 'site%3Adoc.qt.io%2Fdoc%2Fqt-5%2F'
+				site = 'site%3Adoc.qt.io%2Fqt-5%2F'
 				break
 
 			// Docs for Qt 5.3 aren't archived, apparently
