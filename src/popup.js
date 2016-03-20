@@ -1,9 +1,11 @@
+// Designed to be called at startup
 function loadOptions() {
 	var docSubdir = localStorage['docSubdir']
 	if (docSubdir == undefined) {
 		docSubdir = 'qt-5' // Default to the latest version of Qt 5
 	}
 
+	// Highlight the last selected version (or the default)
 	var combobox = document.getElementById('qtSelection')
 	for (var i = 0; i < combobox.children.length; i++) {
 		var child = combobox.children[i]
@@ -14,14 +16,15 @@ function loadOptions() {
 	}
 }
 
+// Designed to be called whenever the user changes the combobox
 function saveOptions() {
 	var combobox = document.getElementById('qtSelection')
 	localStorage['docSubdir'] = combobox.children[combobox.selectedIndex].value
 }
 
-// Can't use inline event handlers in Chrome extensions
+// Chrome extensions disallow inline event handlers, so we listen for the
+// DOMContentLoaded event instead to initialize this tool at startup
 document.addEventListener('DOMContentLoaded', function() {
 	loadOptions()
 	document.getElementById('qtSelection').addEventListener('change', saveOptions)
 });
-
