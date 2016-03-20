@@ -3,7 +3,7 @@
 
 	"name": "Qt Doc Search",
 	"description": "Streamlined documentation search for Qt developers.",
-	"version": "0.9.6",
+	"version": "1.0.0",
 
 	"icons": {
 		"16":  "images/icon16.png",
