@@ -1,13 +1,13 @@
 function loadOptions() {
-	var version = localStorage['qtver']
-	if (version == undefined) {
-		version = '5'
+	var docSubdir = localStorage['docSubdir']
+	if (docSubdir == undefined) {
+		docSubdir = 'qt-5' // Default to the latest version of Qt 5
 	}
 
 	var combobox = document.getElementById('qtSelection')
 	for (var i = 0; i < combobox.children.length; i++) {
 		var child = combobox.children[i]
-		if (child.value == version) {
+		if (child.value == docSubdir) {
 			child.selected = 'true'
 			break
 		}
@@ -16,7 +16,7 @@ function loadOptions() {
 
 function saveOptions() {
 	var combobox = document.getElementById('qtSelection')
-	localStorage['qtver'] = combobox.children[combobox.selectedIndex].value
+	localStorage['docSubdir'] = combobox.children[combobox.selectedIndex].value
 }
 
 // Can't use inline event handlers in Chrome extensions
