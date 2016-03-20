@@ -3,7 +3,7 @@
 
 	"name": "Qt Doc Search",
 	"description": "Streamlined documentation search for Qt developers.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 
 	"icons": {
 		"16":  "images/icon16.png",
@@ -26,4 +26,3 @@
 	},
 	"omnibox": {"keyword": "qd"}
 }
-
