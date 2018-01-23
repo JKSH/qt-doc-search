@@ -8,4 +8,3 @@ chrome.omnibox.onInputEntered.addListener(
 		var site = 'site:doc.qt.io/' + docSubdir + '/'
 		chrome.tabs.create({'url': 'https://www.google.com/search?q=' + site + '+' + encodeURIComponent(searchText)})
 	});
-
