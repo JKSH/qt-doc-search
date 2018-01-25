@@ -1,8 +1,9 @@
 Qt Doc Search
 =============
 
-A Google Chrome extension that provides streamlined documentation search for Qt developers.
+A web browser extension that provides streamlined documentation search for Qt developers.
 
-The extension can be downloaded and installed from https://chrome.google.com/webstore/detail/qt-doc-search/gfigdpnkjnilcielpnmfmdnnbloabjoh
+* Google Chrome: https://chrome.google.com/webstore/detail/qt-doc-search/gfigdpnkjnilcielpnmfmdnnbloabjoh
+* Mozilla Firefox: https://addons.mozilla.org/firefox/addon/qt-documentation-search/
 
 Note: The icons used in the actual extension are not part of this repository because I do not have the right to sublicense them.
