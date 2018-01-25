@@ -1,4 +1,4 @@
-// Designed to be called at startup
+// Designed to be called when the popup window is opened
 function loadOptions() {
 	var docSubdir = localStorage['docSubdir']
 	if (docSubdir == undefined) {

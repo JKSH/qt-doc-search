@@ -1,5 +1,6 @@
 chrome.omnibox.onInputEntered.addListener(
 	function(searchText) {
+		// NOTE: We can't assume that the popup window has been opened before this point
 		var docSubdir = localStorage['docSubdir']
 		if (docSubdir == undefined) {
 			docSubdir = 'qt-5' // Default to the latest version of Qt 5
