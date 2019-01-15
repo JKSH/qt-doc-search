@@ -16,11 +16,13 @@
 		margin: 6px;
 		padding: 8px;
 		line-height: 20px;
-		width: 360px;
-		height: 130px;
+		min-width: 48ch;
 		border-radius: 8px;
 		border: 2px solid rgb(218,218,218);
 		display: block;
+	}
+	label {
+		font-weight: bold;
 	}
 	span.key {
 		background-color: #e9f1f4;
@@ -33,20 +35,24 @@
 </head>
 <body>
 	<div id="mainDiv">
-		<b>Library version:</b>
+		<p><label for="qtSelection">Library version:</label>
 		<select id="qtSelection">
-			<option value="qt-5">Qt 5.x (Latest)</option>
-			<option value="qt-5.9">Qt 5.9 LTS</option>
-			<option value="qt-5.6">Qt 5.6 LTS</option>
-			<option value="archives/qt-4.8">Qt 4.8</option>
-			<option value="archives/qt-4.7">Qt 4.7</option>
-			<option value="archives/4.6">Qt 4.6</option>
-			<option value="archives/4.3">Qt 4.3</option>
-			<option value="archives/3.3">Qt 3.3</option>
-			<option value="archives/2.3">Qt 2.3</option>
-		</select>
+			<optgroup label="Current Qt">
+				<option value="qt-5">Qt 5.x (Latest)</option>
+				<option value="qt-5.9">Qt 5.9 LTS</option>
+				<option value="qt-5.6">Qt 5.6 LTS</option>
+			</optgroup>
+			<optgroup label="Archived Qt">
+				<option value="archives/qt-4.8">Qt 4.8</option>
+				<option value="archives/qt-4.7">Qt 4.7</option>
+				<option value="archives/4.6">Qt 4.6</option>
+				<option value="archives/4.3">Qt 4.3</option>
+				<option value="archives/3.3">Qt 3.3</option>
+				<option value="archives/2.3">Qt 2.3</option>
+			</optgroup>
+		</select></p>
 
-		<p><b>Search engine:</b>
+		<p><label for="engineSelection">Search engine:</label>
 		<select id="engineSelection">
 			<option value="bing.com/search?q=">Bing</option>
 			<option value="duckduckgo.com/?q=">DuckDuckGo</option>
@@ -57,10 +63,9 @@
 			<option value="yandex.com/search/?text=">Yandex</option>
 		</select></p>
 
-		<p><b>Usage:</b> Select your Qt version and search engine from the drop-down menus above. Type 
-		<span class="key">q</span> <span class="key">d</span> <span class="key">space</span> into your
+		<p><strong>Usage:</strong> Select your Qt version and search engine from the drop-down menus above.
+		Type <span class="key">q</span> <span class="key">d</span> <span class="key">space</span> into your
 		browser's address bar to perform a search.</p>
 	</div>
 </body>
 </html>
-

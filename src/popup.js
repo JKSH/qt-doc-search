@@ -7,8 +7,8 @@ function loadLocalStorage(key, defaultValue) {
 
 function initComboBox(elementId, value) {
 	var combobox = document.getElementById(elementId)
-	for (var i = 0; i < combobox.children.length; i++) {
-		var child = combobox.children[i]
+	for (var i = 0; i < combobox.options.length; i++) {
+		var child = combobox.options[i]
 		if (child.value == value) {
 			child.selected = 'true'
 			return
@@ -28,10 +28,10 @@ function loadOptions() {
 // Designed to be called whenever the user changes the comboboxes
 function saveOptions() {
 	var combobox = document.getElementById('qtSelection')
-	localStorage['docSubdir'] = combobox.children[combobox.selectedIndex].value
+	localStorage['docSubdir'] = combobox.options[combobox.selectedIndex].value
 	
 	combobox = document.getElementById('engineSelection')
-	localStorage['searchEngineBase'] = combobox.children[combobox.selectedIndex].value
+	localStorage['searchEngineBase'] = combobox.options[combobox.selectedIndex].value
 }
 
 // Chrome extensions disallow inline event handlers, so we listen for the
@@ -40,4 +40,4 @@ document.addEventListener('DOMContentLoaded', function() {
 	loadOptions()
 	document.getElementById('qtSelection').addEventListener('change', saveOptions)
 	document.getElementById('engineSelection').addEventListener('change', saveOptions)
-});
+})
