@@ -41,3 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('qtSelection').addEventListener('change', saveOptions)
 	document.getElementById('engineSelection').addEventListener('change', saveOptions)
 })
+
+// Allow popup.html to open links in a new tab.
+// 
+document.addEventListener('click', function(e) {
+	if (e.target.href !== undefined)
+		chrome.tabs.create({url: e.target.href})
+})
