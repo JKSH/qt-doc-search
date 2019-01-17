@@ -21,7 +21,7 @@ function initComboBox(elementId, value) {
 function loadOptions() {
 	var docSubdir = loadLocalStorage('docSubdir', 'qt-5') // Default to the latest version of Qt 5
 	var searchEngineBase = loadLocalStorage('searchEngineBase', 'duckduckgo.com/?q=') // Default to the privacy-centric DuckDuckGo
-	var openInNewTab = JSON.parse( loadLocalStorage('openInNewTab', 'true') ) // Default to historical behaviour
+	var openInNewTab = ( loadLocalStorage('openInNewTab', 'true') == 'true' ) // Default to historical behaviour
 	
 	initComboBox('qtSelection', docSubdir)
 	initComboBox('engineSelection', searchEngineBase)
@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 // Allow popup.html to open links in a new tab.
-// 
 document.addEventListener('click', function(e) {
 	if (e.target.href !== undefined)
 		chrome.tabs.create({url: e.target.href})
