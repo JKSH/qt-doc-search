@@ -21,15 +21,21 @@
 		border: 2px solid rgb(218,218,218);
 		display: block;
 	}
+	.grid {
+		display: grid;
+		grid-template-columns: auto auto;
+		grid-gap: 0.75ch;
+	}
+	.labelCol {
+		font-weight: bold;
+		text-align: right;
+	}
 	#footnote {
 		font-style: italic;
 		color: #aaaaaa;
 	}
 	#footnote a {
 		color: #41cd52;
-	}
-	label {
-		font-weight: bold;
 	}
 	span.key {
 		background-color: #e9f1f4;
@@ -42,49 +48,61 @@
 </head>
 <body>
 	<div id="mainDiv">
-		<p><label for="qtSelection">Library/Tool:</label>
-		<select id="qtSelection">
-			<optgroup label="Current Qt">
-				<option value="qt-5">Qt 5.x (Latest)</option>
-				<option value="qt-5.9">Qt 5.9 LTS</option>
-				<option value="qt-5.6">Qt 5.6 LTS</option>
-				<option value="qtforpython">Qt for Python</option>
-			</optgroup>
-			<optgroup label="Tools">
-				<option value="qtcreator">Qt Creator</option>
-				<option value="qt3dstudio">Qt Qt 3D Studio</option>
-				<option value="qtdesignstudio">Qt Design Studio</option>
-				<option value="qtinstallerframework">Qt Installer Framework</option>
-				<option value="qbs">Qbs</option>
-				<option value="qtvstools">Qt VS Tools</option>
-				<option value="GammaRay">GammaRay</option>
-			</optgroup>
-			<optgroup label="Additional Qt Modules">
-				<option value="QtKNX">Qt KNX</option>
-				<option value="QtMQTT">Qt MQTT</option>
-				<option value="QtOPCUA">Qt OPC UA</option>
-				<option value="QtSafeRenderer">Qt Safe Renderer</option>
-			</optgroup>
-			<optgroup label="Archived Qt">
-				<option value="archives/qt-4.8">Qt 4.8</option>
-				<option value="archives/3.3">Qt 3.3</option>
-				<option value="archives/2.3">Qt 2.3</option>
-			</optgroup>
-		</select></p>
-
-		<p><label for="engineSelection">Search engine:</label>
-		<select id="engineSelection">
-			<option value="bing.com/search?q=">Bing</option>
-			<option value="duckduckgo.com/?q=">DuckDuckGo</option>
-			<option value="duckduckgo.com/?q=!%20">DuckDuckGo (Ducky)</option>
-			<option value="google.com/search?q=">Google</option>
-			<option value="google.com/search?btnI=I%27m+Feeling+Lucky&amp;q=">Google (I'm Feeling Lucky)</option>
-			<option value="search.yahoo.com/search?p=">Yahoo!</option>
-			<option value="yandex.com/search/?text=">Yandex</option>
-		</select></p>
-		
-		<p><label for="tabSwitch">Open in new tab?</label>
-		<input type="checkbox" name="tabSwitch" id="tabSwitch"></p>
+		<div class="grid">
+			<div class="labelCol">
+				<label for="qtSelection">Library/Tool:</label>
+			</div>
+			<div>
+				<select id="qtSelection">
+					<optgroup label="Current Qt">
+						<option value="qt-5">Qt 5.x (Latest)</option>
+						<option value="qt-5.9">Qt 5.9 LTS</option>
+						<option value="qt-5.6">Qt 5.6 LTS</option>
+						<option value="qtforpython">Qt for Python</option>
+					</optgroup>
+					<optgroup label="Tools">
+						<option value="qtcreator">Qt Creator</option>
+						<option value="qt3dstudio">Qt 3D Studio</option>
+						<option value="qtdesignstudio">Qt Design Studio</option>
+						<option value="qtinstallerframework">Qt Installer Framework</option>
+						<option value="qbs">Qbs</option>
+						<option value="qtvstools">Qt VS Tools</option>
+						<option value="GammaRay">GammaRay</option>
+					</optgroup>
+					<optgroup label="Additional Qt Modules">
+						<option value="QtKNX">Qt KNX</option>
+						<option value="QtMQTT">Qt MQTT</option>
+						<option value="QtOPCUA">Qt OPC UA</option>
+						<option value="QtSafeRenderer">Qt Safe Renderer</option>
+					</optgroup>
+					<optgroup label="Archived Qt">
+						<option value="archives/qt-4.8">Qt 4.8</option>
+						<option value="archives/3.3">Qt 3.3</option>
+						<option value="archives/2.3">Qt 2.3</option>
+					</optgroup>
+				</select>
+			</div>
+			<div class="labelCol">
+				<label for="engineSelection">Search engine:</label>
+			</div>
+			<div>
+				<select id="engineSelection">
+					<option value="bing.com/search?q=">Bing</option>
+					<option value="duckduckgo.com/?q=">DuckDuckGo</option>
+					<option value="duckduckgo.com/?q=!%20">DuckDuckGo (Ducky)</option>
+					<option value="google.com/search?q=">Google</option>
+					<option value="google.com/search?btnI=I%27m+Feeling+Lucky&amp;q=">Google (I'm Feeling Lucky)</option>
+					<option value="search.yahoo.com/search?p=">Yahoo!</option>
+					<option value="yandex.com/search/?text=">Yandex</option>
+				</select>
+			</div>
+			<div class="labelCol">
+				<label for="tabSwitch">Open in new tab?</label>
+			</div>
+			<div>
+				<input type="checkbox" name="tabSwitch" id="tabSwitch">
+			</div>
+		</div>
 
 		<p><strong>Usage:</strong> Select your Qt version or tool and search engine from the drop-down menus
 		above. Type <span class="key">q</span> <span class="key">d</span> <span class="key">space</span> into
