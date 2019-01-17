@@ -9,6 +9,15 @@ chrome.omnibox.onInputEntered.addListener(
 		if (searchEngineBase == undefined) {
 			searchEngineBase = 'duckduckgo.com/?q=' // Default to the privacy-centric DuckDuckGo
 		}
+		var openInNewTab = localStorage['openInNewTab']
+		if (openInNewTab == undefined)
+			openInNewTab = 'true' // Default to historical behaviour
+
 		var site = 'site:doc.qt.io/' + docSubdir + '/'
-		chrome.tabs.create({'url': 'https://' + searchEngineBase + site + '+' + encodeURIComponent(searchText)})
+		var urlObj = {'url': 'https://' + searchEngineBase + site + '+' + encodeURIComponent(searchText)}
+
+		if (openInNewTab == 'true')
+			chrome.tabs.create(urlObj)
+		else
+			chrome.tabs.update(urlObj)
 	});

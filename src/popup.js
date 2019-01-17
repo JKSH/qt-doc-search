@@ -1,4 +1,5 @@
 function loadLocalStorage(key, defaultValue) {
+	console.assert(typeof defaultValue == 'string') // localStorage only stores strings
 	var value = localStorage[key]
 	if (value == undefined)
 		return defaultValue
@@ -20,18 +21,25 @@ function initComboBox(elementId, value) {
 function loadOptions() {
 	var docSubdir = loadLocalStorage('docSubdir', 'qt-5') // Default to the latest version of Qt 5
 	var searchEngineBase = loadLocalStorage('searchEngineBase', 'duckduckgo.com/?q=') // Default to the privacy-centric DuckDuckGo
+	var openInNewTab = JSON.parse( loadLocalStorage('openInNewTab', 'true') ) // Default to historical behaviour
 	
 	initComboBox('qtSelection', docSubdir)
 	initComboBox('engineSelection', searchEngineBase)
+	
+	// Init checkbox
+	document.getElementById('tabSwitch').checked = openInNewTab
 }
 
 // Designed to be called whenever the user changes the comboboxes
 function saveOptions() {
-	var combobox = document.getElementById('qtSelection')
-	localStorage['docSubdir'] = combobox.options[combobox.selectedIndex].value
+	var box = document.getElementById('qtSelection')
+	localStorage['docSubdir'] = box.options[box.selectedIndex].value
 	
-	combobox = document.getElementById('engineSelection')
-	localStorage['searchEngineBase'] = combobox.options[combobox.selectedIndex].value
+	box = document.getElementById('engineSelection')
+	localStorage['searchEngineBase'] = box.options[box.selectedIndex].value
+	
+	box = document.getElementById('tabSwitch')
+	localStorage['openInNewTab'] = box.checked // NOTE: Implicit stringification occurs
 }
 
 // Chrome extensions disallow inline event handlers, so we listen for the
@@ -40,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	loadOptions()
 	document.getElementById('qtSelection').addEventListener('change', saveOptions)
 	document.getElementById('engineSelection').addEventListener('change', saveOptions)
+	document.getElementById('tabSwitch').addEventListener('change', saveOptions)
 })
 
 // Allow popup.html to open links in a new tab.
