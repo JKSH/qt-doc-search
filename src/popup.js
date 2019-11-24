@@ -21,7 +21,7 @@ function initComboBox(elementId, value) {
 function loadOptions() {
 	var docSubdir = loadLocalStorage('docSubdir', 'qt-5') // Default to the latest version of Qt 5
 	var searchEngineBase = loadLocalStorage('searchEngineBase', 'duckduckgo.com/?q=') // Default to the privacy-centric DuckDuckGo
-	var openInNewTab = ( loadLocalStorage('openInNewTab', 'true') == 'true' ) // Default to historical behaviour
+	var openInNewTab = ( loadLocalStorage('openInNewTab', 'false') == 'true' )
 	
 	initComboBox('qtSelection', docSubdir)
 	initComboBox('engineSelection', searchEngineBase)
