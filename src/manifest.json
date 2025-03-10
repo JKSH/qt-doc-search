@@ -23,7 +23,15 @@
 	},
 
 	"background": {
-		"service_worker": "background.js"
+		"service_worker": "background.js",		
+		"scripts": ["background.js"]
 	},
+
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "{f9264e2b-5707-4a52-bfed-a758d0f80504}"
+		}
+	},
+
 	"omnibox": {"keyword": "qd"}
 }
