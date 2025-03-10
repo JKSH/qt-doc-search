@@ -11,8 +11,8 @@ function initComboBox(combobox, value) {
 // Designed to be called when the popup window is opened
 function initOptions() {
 	chrome.storage.local.get(['docSubdir', 'searchEngineBase', 'openInNewTab']).then((localStorage) => {
-		const docSubdir = localStorage['docSubdir'] ?? 'qt-5' // Default to the latest version of Qt 5
-		const searchEngineBase = localStorage['searchEngineBase'] ?? 'duckduckgo.com/?q=' // Default to the privacy-centric DuckDuckGo
+		const docSubdir = localStorage['docSubdir'] ?? 'qt-6' // Default to the latest version of Qt 6
+		const searchEngineBase = localStorage['searchEngineBase'] ?? 'ecosia.org/search?q=' // Default to the conservation-supporting Ecosia
 		const openInNewTab = (localStorage['openInNewTab'] ?? false)
 
 		const comboBox_qtSelection = document.getElementById('qtSelection')
