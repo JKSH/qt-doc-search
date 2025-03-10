@@ -5,8 +5,8 @@ chrome.omnibox.onInputEntered.addListener((searchText) => {
 		const searchEngineBase = localStorage['searchEngineBase'] ?? 'ecosia.org/search?q=' // Default to the conservation-supporting Ecosia
 		const openInNewTab = (localStorage['openInNewTab'] ?? false)
 
-		var site = 'site:doc.qt.io/' + docSubdir + '/'
-		var urlObj = {'url': 'https://' + searchEngineBase + site + '+' + encodeURIComponent(searchText)}
+		const site = 'site:doc.qt.io/' + docSubdir + '/'
+		const urlObj = {'url': 'https://' + searchEngineBase + site + '+' + encodeURIComponent(searchText)}
 
 		if (openInNewTab)
 			chrome.tabs.create(urlObj)

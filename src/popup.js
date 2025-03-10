@@ -1,6 +1,6 @@
 function initComboBox(combobox, value) {
-	for (var i = 0; i < combobox.options.length; i++) {
-		var child = combobox.options[i]
+	for (let i = 0; i < combobox.options.length; i++) {
+		const child = combobox.options[i]
 		if (child.value == value) {
 			child.selected = 'true'
 			return
