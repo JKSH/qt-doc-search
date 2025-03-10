@@ -12,7 +12,7 @@ function initComboBox(combobox, value) {
 function initOptions() {
 	const docSubdir = localStorage['docSubdir'] ?? 'qt-5' // Default to the latest version of Qt 5
 	const searchEngineBase = localStorage['searchEngineBase'] ?? 'duckduckgo.com/?q=' // Default to the privacy-centric DuckDuckGo
-	const openInNewTab = (localStorage['openInNewTab'] ?? 'false') == 'true'
+	const openInNewTab = (localStorage['openInNewTab'] ?? 'false')
 
 	const comboBox_qtSelection = document.getElementById('qtSelection')
 	const comboBox_engineSelection = document.getElementById('engineSelection')
