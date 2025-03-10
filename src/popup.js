@@ -10,9 +10,10 @@ function initComboBox(combobox, value) {
 
 // Designed to be called when the popup window is opened
 function initOptions() {
+chrome.storage.local.get(['docSubdir', 'searchEngineBase', 'openInNewTab']).then((localStorage) => {
 	const docSubdir = localStorage['docSubdir'] ?? 'qt-5' // Default to the latest version of Qt 5
 	const searchEngineBase = localStorage['searchEngineBase'] ?? 'duckduckgo.com/?q=' // Default to the privacy-centric DuckDuckGo
-	const openInNewTab = (localStorage['openInNewTab'] ?? 'false')
+	const openInNewTab = (localStorage['openInNewTab'] ?? false)
 
 	const comboBox_qtSelection = document.getElementById('qtSelection')
 	const comboBox_engineSelection = document.getElementById('engineSelection')
@@ -26,14 +27,21 @@ function initOptions() {
 
 	// Save user selections whenever they are changed
 	comboBox_qtSelection.addEventListener('change', function() {
-		localStorage['docSubdir'] = comboBox_qtSelection.options[comboBox_qtSelection.selectedIndex].value
+		chrome.storage.local.set({
+			docSubdir: comboBox_qtSelection.options[comboBox_qtSelection.selectedIndex].value
+		})
 	})
 	comboBox_engineSelection.addEventListener('change', function() {
-		localStorage['searchEngineBase'] = comboBox_engineSelection.options[comboBox_engineSelection.selectedIndex].value
+		chrome.storage.local.set({
+			searchEngineBase: comboBox_engineSelection.options[comboBox_engineSelection.selectedIndex].value
+		})
 	})
 	checkBox_tabSwitch.addEventListener('change', function() {
-		localStorage['openInNewTab'] = checkBox_tabSwitch.checked // NOTE: Implicit stringification occurs
+		chrome.storage.local.set({
+			openInNewTab: checkBox_tabSwitch.checked
+		})
 	})
+})
 }
 
 // Chrome extensions disallow inline event handlers, so we listen for the
